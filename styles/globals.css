@@ -1,0 +1,217 @@
+/* styles/globals.css */
+/* Matches aeonew.html exactly: Inter font, white base, slate text, blue-600 accents */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Blues */
+  --blue-600:    #2563eb;
+  --blue-700:    #1d4ed8;
+  --blue-50:     #eff6ff;
+  --blue-100:    #dbeafe;
+
+  /* Slates */
+  --slate-900:   #0f172a;
+  --slate-800:   #1e293b;
+  --slate-700:   #334155;
+  --slate-600:   #475569;
+  --slate-500:   #64748b;
+  --slate-400:   #94a3b8;
+  --slate-200:   #e2e8f0;
+  --slate-100:   #f1f5f9;
+  --slate-50:    #f8fafc;
+  --white:       #ffffff;
+
+  /* Status */
+  --green:       #10b981;
+  --red:         #ef4444;
+  --yellow:      #f59e0b;
+
+  /* Typography */
+  --font:        'Inter', system-ui, sans-serif;
+
+  /* Shadows — from aeonew.html card-shadow */
+  --shadow-card: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.06);
+  --shadow-xl:   0 20px 40px -10px rgba(37,99,235,0.15);
+
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--slate-800);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hero gradient — exact from aeonew.html */
+.bg-gradient-blue {
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+}
+
+/* Card shadow — exact from aeonew.html */
+.card-shadow {
+  box-shadow: var(--shadow-card);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font);
+  color: var(--slate-900);
+  line-height: 1.1;
+}
+
+a { color: var(--blue-600); text-decoration: none; }
+a:hover { color: var(--blue-700); }
+button { font-family: var(--font); cursor: pointer; border: none; }
+
+input, select, textarea {
+  font-family: var(--font);
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  color: var(--slate-900);
+  border-radius: 0.5rem;
+  padding: 12px 16px;
+  font-size: 15px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--blue-600);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+input::placeholder { color: var(--slate-400); }
+
+/* Layout */
+.max-w-7xl { max-width: 80rem; margin: 0 auto; padding: 0 1.5rem; }
+.max-w-5xl { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+.max-w-3xl { max-width: 48rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ── Primary button — slate-900 bg as in aeonew.html hero ── */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--slate-900);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.btn-dark:hover  { background: var(--slate-800); transform: translateY(-1px); color: var(--white); text-decoration: none; }
+.btn-dark:active { transform: translateY(0); }
+.btn-dark:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ── Blue pill button — for report CTA ── */
+.btn-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--blue-600);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.btn-blue:hover  { background: var(--blue-700); transform: translateY(-1px); box-shadow: var(--shadow-xl); color: var(--white); text-decoration: none; }
+.btn-blue:active { transform: translateY(0); }
+.btn-blue:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Status pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+.pill-good { background: #d1fae5; color: #065f46; }
+.pill-warn { background: #fef3c7; color: #92400e; }
+.pill-bad  { background: #fee2e2; color: #991b1b; }
+.pill-blue { background: var(--blue-50); color: var(--blue-600); }
+
+/* Score ring */
+.score-ring {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 800;
+  border: 3px solid var(--slate-200);
+  background: var(--white);
+}
+.score-ring.good { border-color: var(--green); color: var(--green); }
+.score-ring.warn { border-color: var(--yellow); color: var(--yellow); }
+.score-ring.bad  { border-color: var(--red);   color: var(--red);   }
+
+/* Spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 22px; height: 22px;
+  border: 2.5px solid var(--slate-200);
+  border-top-color: var(--blue-600);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Comparison table — exact aeonew.html style */
+.compare-table { width: 100%; border-collapse: collapse; text-align: left; }
+.compare-table thead tr { background: var(--slate-50); }
+.compare-table th {
+  padding: 1.5rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--slate-200);
+}
+.compare-table th.blue-col { color: var(--blue-600); background: rgba(239,246,255,0.5); }
+.compare-table td {
+  padding: 1.5rem;
+  color: var(--slate-700);
+  border-bottom: 1px solid var(--slate-100);
+}
+.compare-table td.blue-col { background: rgba(239,246,255,0.2); }
+.compare-table td.fw { font-weight: 500; color: var(--slate-900); }
+.compare-table tbody tr:last-child td { border-bottom: none; }
+.compare-table tbody tr:hover td { background: var(--slate-50); }
+.compare-table tbody tr:hover td.blue-col { background: rgba(239,246,255,0.4); }
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up  { animation: fadeUp 0.5s ease both; }
+.delay-1  { animation-delay: 0.08s; }
+.delay-2  { animation-delay: 0.16s; }
+.delay-3  { animation-delay: 0.24s; }
+.delay-4  { animation-delay: 0.32s; }
+
+@media (max-width: 768px) {
+  .max-w-7xl, .max-w-5xl, .max-w-3xl { padding: 0 1.25rem; }
+}
